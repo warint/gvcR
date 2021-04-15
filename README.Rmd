@@ -47,7 +47,7 @@ gvcr_location("Canal") # A list of locations that contain the word 'Canal' will 
 
 A user needs to enter the code of the desired risk. To do so, the following function provides access to all the risks of interest.
 
-```{r}
+```{r, eval=FALSE}
 gvcr_risk() # A list of all risks code will be produced
 
 gvcr_risk(indicators = "attack") # The risk code will be produced for risks that contain the word 'attack'
@@ -60,7 +60,7 @@ gvcr_risk("attack") # The risk code will be produced for risks that contain the 
 
 Once the user knows the location and the risk’s code, s.he can collect the data in a very easy way through this function:
 
-```{r}
+```{r, eval=FALSE}
 gvcr_data(location = "Panama Canal", risks = "S-T") # It generates a data frame for 'Terrorist attack' (S-T) risk in the location 'Panama Canal'
 
 gvcr_data("Panama Canal", "S-T") # It generates a data frame for 'Terrorist attack' (S-T) risk in the location 'Panama Canal'
