@@ -22,33 +22,57 @@ The goal of gvcR is to ...
 
 ## Installation
 
-You can install the released version of gvcR from [CRAN](https://CRAN.R-project.org) with:
+The released version of `gvcR` package is accessible through devtools.
 
-``` r
-install.packages("gvcR")
+```{r, eval=FALSE}
+install.packages("devtools")
+devtools::install_github('warint/gvcR')
 ```
 
-## Example
+## How-To
 
-This is a basic example which shows you how to solve a common problem:
+### Step 1: Getting the location’s list
 
-```{r example}
-library(gvcR)
-## basic example code
+A user needs to enter the location of the risk. To have access to this location, the following function provides this information.
+
+```{r, eval=FALSE}
+gvcr_location() # A list of all locations will be produced
+
+gvcr_location(location = "Canal") # A list of locations that contain the word 'Canal' will be produced
+
+gvcr_location("Canal") # A list of locations that contain the word 'Canal' will be produced
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+### Step 2: Getting the indicator’s code
 
-```{r cars}
-summary(cars)
+A user needs to enter the code of the desired risk. To do so, the following function provides access to all the risks of interest.
+
+```{r}
+gvcr_risk() # A list of all risks code will be produced
+
+gvcr_risk(indicators = "attack") # The risk code will be produced for risks that contain the word 'attack'
+
+gvcr_risk("attack") # The risk code will be produced for risks that contain the word 'attack'
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.
 
-You can also embed plots, for example:
+### Step 3: Getting the data
 
-```{r pressure, echo = FALSE}
-plot(pressure)
+Once the user knows the location and the risk’s code, s.he can collect the data in a very easy way through this function:
+
+```{r}
+gvcr_data(location = "Panama Canal", risks = "S-T") # It generates a data frame for 'Terrorist attack' (S-T) risk in the location 'Panama Canal'
+
+gvcr_data("Panama Canal", "S-T") # It generates a data frame for 'Terrorist attack' (S-T) risk in the location 'Panama Canal'
+
+gvcr_data(location = c("Panama Canal", "Suez Canal"), risks = c("S-T", "S-C")) # It generates a data frame for 'Terrorist attack' (S-T) and 'Conflict' (S-C) risks in the location 'Panama Canal'
+
+gvcr_data(category = "Weather and climate risk") # It generates a data frame for all locations and risks in the category 'Weather and climate risk'
+
+gvcr_data(levels = "High risk") # It generates a data frame for all locations and risks with a 'High risk'
+
+gvcr_data() # It generates a data frame of the complete dataset
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+
+

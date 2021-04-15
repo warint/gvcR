@@ -38,11 +38,11 @@ gvc_category <- base::unique(gvc_data$risk_category)
 #'
 #' @examples
 #'
-#' myData<- gvcr_data(location = "Panama Canal", risks = "Storms")
-#' myData<- gvcr_data(location = c("Panama Canal", "Suez Canal"), risks = c("Storms", "Conflict"))
+#' myData<- gvcr_data(location = "Panama Canal", risks = "S-T")
+#' myData<- gvcr_data(location = c("Panama Canal", "Suez Canal"), risks = c("S-T", "S-C"))
 #' myData<- gvcr_data(category = "Weather and climate risk")
 #' myData<- gvcr_data(levels = "High risk")
-#' myData<- gvcr_data("Panama Canal", "Storms")
+#' myData<- gvcr_data("Panama Canal", "S-T")
 #' myData<- gvcr_data()
 
 gvcr_data <- function(locations = gvc_location,
