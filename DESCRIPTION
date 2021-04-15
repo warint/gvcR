@@ -1,0 +1,15 @@
+Package: gvcR
+Type: Package
+Title: Extract Data About Global Value Chains Risk
+Version: 0.1.0
+Authors@R: person("Thierry", "Warin", email = "thierry.warin@hec.ca", role =c("aut", "cre"), comment = c(ORCID = "0000-0002-5921-3428"))
+Description: Researchers and analysts have access to global value chains risks by location, level, risks category and incident.
+Imports: readr, dplyr, curl
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
