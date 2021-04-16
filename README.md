@@ -6,7 +6,163 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of gvcR is to …
+The R package `gvcR` provides data on risks of disruption or passage
+restriction at major choke points worldwide. When possible, a list of
+examples of disruptions and transit delays that have occurred in these
+locations since 2002 is given. A maximum of three incidents are noted
+for each risk category.
+
+The choke point risks are classified into three categories: - weather
+and climate risk; security and conflict risk; and political and
+institutional risk – and further divided these into subcategories, such
+as ‘haze and fog,’ ‘trade and transit controls’ etc.
+
+Each risk also has a code defined as follows: first letter of the
+category, dash, first of the risk. If the risk letter already exists, it
+will be accompanied by a slash and then by the first letter of the
+second risk word. (see the table below)
+
+<table class=" lightable-material" style="font-family: &quot;Source Sans Pro&quot;, helvetica, sans-serif; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Risk
+</th>
+<th style="text-align:left;">
+Risk Category
+</th>
+<th style="text-align:left;">
+Risk Code
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Temperature extremes
+</td>
+<td style="text-align:left;">
+Weather and climate risk
+</td>
+<td style="text-align:left;">
+W-T
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Flood and drought
+</td>
+<td style="text-align:left;">
+Weather and climate risk
+</td>
+<td style="text-align:left;">
+W-F/D
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Storms
+</td>
+<td style="text-align:left;">
+Weather and climate risk
+</td>
+<td style="text-align:left;">
+W-S
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Haze and fog
+</td>
+<td style="text-align:left;">
+Weather and climate risk
+</td>
+<td style="text-align:left;">
+W-H/F
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Conflict
+</td>
+<td style="text-align:left;">
+Security and conflict risk
+</td>
+<td style="text-align:left;">
+S-C
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Terrorist attack
+</td>
+<td style="text-align:left;">
+Security and conflict risk
+</td>
+<td style="text-align:left;">
+S-T
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Piracy
+</td>
+<td style="text-align:left;">
+Security and conflict risk
+</td>
+<td style="text-align:left;">
+S-P
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cyberattack
+</td>
+<td style="text-align:left;">
+Security and conflict risk
+</td>
+<td style="text-align:left;">
+S-C/A
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Trade and transit controls
+</td>
+<td style="text-align:left;">
+Political and institutional risk
+</td>
+<td style="text-align:left;">
+P-T
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Disrepair
+</td>
+<td style="text-align:left;">
+Political and institutional risk
+</td>
+<td style="text-align:left;">
+P-D
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Unforced delays
+</td>
+<td style="text-align:left;">
+Political and institutional risk
+</td>
+<td style="text-align:left;">
+P-U
+</td>
+</tr>
+</tbody>
+</table>
+
+For a fully explanation of the Chatham House Risks click
+[here](https://www.chathamhouse.org/2017/06/chokepoints-and-vulnerabilities-global-food-trade-0/annex-2-examples-chokepoint-disruption).
 
 ## Installation
 
@@ -77,7 +233,7 @@ To cite the ‘gvcR’ package in your work:
 Warin, Thierry. 2021. Warint/gvcR. <https://github.com/warint/gvcR>.
 
     #> @Manual{,
-    #>   title = {gvcR: Extract Data About Global Value Chains Risk},
+    #>   title = {gvcR: Wrapper for Global Value Chains Risks},
     #>   author = {Thierry Warin},
     #>   note = {R package version 0.1.0},
     #>   url = {https://warint.github.io/gvcR/},

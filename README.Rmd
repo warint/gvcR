@@ -1,5 +1,6 @@
 ---
 output: github_document
+always_allow_html: true
 bibliography: refs.bib
 ---
 
@@ -19,7 +20,21 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of gvcR is to ...
+The R package `gvcR` provides data on risks of disruption or passage restriction at major choke points worldwide. When possible, a list of examples of disruptions and transit delays that have occurred in these locations since 2002 is given. A maximum of three incidents are noted for each risk category. 
+
+The choke point risks are classified into three categories: - weather and climate risk; security and conflict risk; and political and institutional risk – and further divided these into subcategories, such as ‘haze and fog’, ‘trade and transit controls’ etc. 
+
+Each risk also has a code defined as follows: first letter of the category, dash, first of the risk. If the risk letter already exists, it will be accompanied by a slash and then by the first letter of the second risk word. (see the table below)
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+library(kableExtra)
+gvcR::gvcr_risk() %>%
+  kbl(col.names = c("Risk", "Risk Category", "Risk Code")) %>%
+  kable_material()
+```
+
+For a fully explanation of the Chatham House Risks click [here](https://www.chathamhouse.org/2017/06/chokepoints-and-vulnerabilities-global-food-trade-0/annex-2-examples-chokepoint-disruption).
 
 ## Installation
 
