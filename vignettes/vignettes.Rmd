@@ -1,5 +1,6 @@
 ---
 title: "Vignette"
+bibliography: refs.bib
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Vignette}
@@ -16,8 +17,91 @@ knitr::opts_chunk$set(
 
 # Overview
 
-The dataset is about Global Value Chains Risk.
+The R package `gvcR` provides data on risks of disruption or passage restriction at major choke points worldwide. When possible, a list of examples of disruptions and transit delays that have occurred in these locations since 2002 is given. A maximum of three incidents are noted for each risk category. 
 
-```{r setup}
-library(gvcR)
+The choke point risks are classified into three categories: - weather and climate risk; security and conflict risk; and political and institutional risk – and further divided these into subcategories, such as ‘haze and fog’, ‘trade and transit controls’ etc. 
+
+Each risk also has a code defined as follows: first letter of the category, dash, first of the risk. If the risk letter already exists, it will be accompanied by a slash and then by the first letter of the second risk word. (see the table below)
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(dplyr)
+library(kableExtra)
+gvcR::gvcr_risk() %>%
+  kbl(col.names = c("Risk", "Risk Category", "Risk Code")) %>%
+  kable_material()
 ```
+
+For a fully explanation of the Chatham House Risks click [here](https://www.chathamhouse.org/2017/06/chokepoints-and-vulnerabilities-global-food-trade-0/annex-2-examples-chokepoint-disruption).
+
+## Installation
+
+The released version of `gvcR` package is accessible through devtools.
+
+```{r, eval=FALSE}
+install.packages("devtools")
+devtools::install_github('warint/gvcR')
+```
+
+## How-To
+
+### Step 1: Getting the location’s list
+
+A user needs to enter the location of the risk. To have access to this location, the following function provides this information.
+
+```{r, eval=FALSE}
+gvcr_location() # A list of all locations will be produced
+
+gvcr_location(location = "Canal") # A list of locations that contain the word 'Canal' will be produced
+
+gvcr_location("Canal") # A list of locations that contain the word 'Canal' will be produced
+```
+
+### Step 2: Getting the indicator’s code
+
+A user needs to enter the code of the desired risk. To do so, the following function provides access to all the risks of interest.
+
+```{r, eval=FALSE}
+gvcr_risk() # A list of all risks code will be produced
+
+gvcr_risk(indicators = "attack") # The risk code will be produced for risks that contain the word 'attack'
+
+gvcr_risk("attack") # The risk code will be produced for risks that contain the word 'attack'
+```
+
+
+### Step 3: Getting the data
+
+Once the user knows the location and the risk’s code, s.he can collect the data in a very easy way through this function:
+
+```{r, eval=FALSE}
+gvcr_data(location = "Panama Canal", risks = "S-T") # It generates a data frame for 'Terrorist attack' (S-T) risk in the location 'Panama Canal'
+
+gvcr_data("Panama Canal", "S-T") # It generates a data frame for 'Terrorist attack' (S-T) risk in the location 'Panama Canal'
+
+gvcr_data(location = c("Panama Canal", "Suez Canal"), risks = c("S-T", "S-C")) # It generates a data frame for 'Terrorist attack' (S-T) and 'Conflict' (S-C) risks in the location 'Panama Canal'
+
+gvcr_data(category = "Weather and climate risk") # It generates a data frame for all locations and risks in the category 'Weather and climate risk'
+
+gvcr_data(levels = "High risk") # It generates a data frame for all locations and risks with a 'High risk'
+
+gvcr_data() # It generates a data frame of the complete dataset
+```
+
+### Cite ‘gvcR’
+
+If you use the `gvcR` package for research, education, policy making or other related purposes, please cite the package as well as @wellesley_chokepoints_2017. Consider making them a [donation](https://www.chathamhouse.org/support-us) to help them pursue their work.
+
+To cite the ‘gvcR’ package in your work:
+
+Warin, Thierry. 2021. Warint/gvcR. https://github.com/warint/gvcR.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+toBibtex(citation("gvcR"))
+```
+
+### Acknowledgements
+
+The author would like to thank the Center for Interuniversity Research and Analysis of Organizations (CIRANO, Montreal) for its support, as well as Marine Leroi and Martin Paquette. The usual caveats apply.
+
+### References
+
