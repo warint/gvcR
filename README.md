@@ -63,3 +63,44 @@ gvcr_data(levels = "High risk") # It generates a data frame for all locations an
 
 gvcr_data() # It generates a data frame of the complete dataset
 ```
+
+### Cite ‘gvcR’
+
+If you use the `gvcR` package for research, education, policy making or
+other related purposes, please cite the package as well as Wellesley et
+al. (2017). Consider making them a
+[donation](https://www.chathamhouse.org/support-us) to help them pursue
+their work.
+
+To cite the ‘gvcR’ package in your work:
+
+Warin, Thierry. 2021. Warint/gvcR. <https://github.com/warint/gvcR>.
+
+    #> @Manual{,
+    #>   title = {gvcR: Extract Data About Global Value Chains Risk},
+    #>   author = {Thierry Warin},
+    #>   note = {R package version 0.1.0},
+    #>   url = {https://warint.github.io/gvcR/},
+    #> }
+
+### Acknowledgements
+
+The author would like to thank the Center for Interuniversity Research
+and Analysis of Organizations (CIRANO, Montreal) for its support, as
+well as Marine Leroi and Martin Paquette. The usual caveats apply.
+
+### References
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+
+<div id="ref-wellesley_chokepoints_2017" class="csl-entry">
+
+Wellesley, Laura, Felix Preston, Johanna Lehne, and Rob Bailey. 2017.
+“Chokepoints in Global Food Trade: Assessing the Risk.” *Research in
+Transportation Business & Management*, New developments in the global
+transport of commodity products, 25 (December): 15–28.
+<https://doi.org/10.1016/j.rtbm.2017.07.007>.
+
+</div>
+
+</div>

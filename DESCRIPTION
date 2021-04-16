@@ -1,6 +1,6 @@
 Package: gvcR
 Type: Package
-Title: Extract Data About Global Value Chains Risk
+Title: Wrapper for Global Value Chains Risks
 Version: 0.1.0
 Authors@R: person("Thierry", "Warin", email = "thierry.warin@hec.ca", role =c("aut", "cre"), comment = c(ORCID = "0000-0002-5921-3428"))
 Description: Researchers and analysts have access to global value chains risks by location, level, risks category and incident.

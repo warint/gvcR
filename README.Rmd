@@ -1,5 +1,6 @@
 ---
 output: github_document
+bibliography: refs.bib
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -74,5 +75,21 @@ gvcr_data(levels = "High risk") # It generates a data frame for all locations an
 gvcr_data() # It generates a data frame of the complete dataset
 ```
 
+### Cite ‘gvcR’
 
+If you use the `gvcR` package for research, education, policy making or other related purposes, please cite the package as well as @wellesley_chokepoints_2017. Consider making them a [donation](https://www.chathamhouse.org/support-us) to help them pursue their work.
+
+To cite the ‘gvcR’ package in your work:
+
+Warin, Thierry. 2021. Warint/gvcR. https://github.com/warint/gvcR.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+toBibtex(citation("gvcR"))
+```
+
+### Acknowledgements
+
+The author would like to thank the Center for Interuniversity Research and Analysis of Organizations (CIRANO, Montreal) for its support, as well as Marine Leroi and Martin Paquette. The usual caveats apply.
+
+### References
 
