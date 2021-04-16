@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Extract Data About Global Value Chains Risk • gvcR</title>
+<title>Wrapper for Global Value Chains Risks • gvcR</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Extract Data About Global Value Chains Risk">
+<script src="pkgdown.js"></script><meta property="og:title" content="Wrapper for Global Value Chains Risks">
 <meta property="og:description" content="Researchers and analysts have access to global value chains risks by location, level, risks category and incident.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -70,21 +70,223 @@
 <a href="#gvcr" class="anchor"></a>gvcR</h1></div>
 <!-- badges: start -->
 <!-- badges: end -->
-<p>The goal of gvcR is to …</p>
+<p>The R package <code>gvcR</code> provides data on risks of disruption or passage restriction at major choke points worldwide. When possible, a list of examples of disruptions and transit delays that have occurred in these locations since 2002 is given. A maximum of three incidents are noted for each risk category.</p>
+<p>The choke point risks are classified into three categories: - weather and climate risk; security and conflict risk; and political and institutional risk – and further divided these into subcategories, such as ‘haze and fog,’ ‘trade and transit controls’ etc.</p>
+<p>Each risk also has a code defined as follows: first letter of the category, dash, first of the risk. If the risk letter already exists, it will be accompanied by a slash and then by the first letter of the second risk word. (see the table below)</p>
+<table class="table  lightable-material">
+<thead><tr>
+<th style="text-align:left;">
+Risk
+</th>
+<th style="text-align:left;">
+Risk Category
+</th>
+<th style="text-align:left;">
+Risk Code
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Temperature extremes
+</td>
+<td style="text-align:left;">
+Weather and climate risk
+</td>
+<td style="text-align:left;">
+W-T
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Flood and drought
+</td>
+<td style="text-align:left;">
+Weather and climate risk
+</td>
+<td style="text-align:left;">
+W-F/D
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Storms
+</td>
+<td style="text-align:left;">
+Weather and climate risk
+</td>
+<td style="text-align:left;">
+W-S
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Haze and fog
+</td>
+<td style="text-align:left;">
+Weather and climate risk
+</td>
+<td style="text-align:left;">
+W-H/F
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Conflict
+</td>
+<td style="text-align:left;">
+Security and conflict risk
+</td>
+<td style="text-align:left;">
+S-C
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Terrorist attack
+</td>
+<td style="text-align:left;">
+Security and conflict risk
+</td>
+<td style="text-align:left;">
+S-T
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Piracy
+</td>
+<td style="text-align:left;">
+Security and conflict risk
+</td>
+<td style="text-align:left;">
+S-P
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cyberattack
+</td>
+<td style="text-align:left;">
+Security and conflict risk
+</td>
+<td style="text-align:left;">
+S-C/A
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Trade and transit controls
+</td>
+<td style="text-align:left;">
+Political and institutional risk
+</td>
+<td style="text-align:left;">
+P-T
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Disrepair
+</td>
+<td style="text-align:left;">
+Political and institutional risk
+</td>
+<td style="text-align:left;">
+P-D
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Unforced delays
+</td>
+<td style="text-align:left;">
+Political and institutional risk
+</td>
+<td style="text-align:left;">
+P-U
+</td>
+</tr>
+</tbody>
+</table>
+<p>For a fully explanation of the Chatham House Risks click <a href="https://www.chathamhouse.org/2017/06/chokepoints-and-vulnerabilities-global-food-trade-0/annex-2-examples-chokepoint-disruption">here</a>.</p>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of gvcR from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
+<p>The released version of <code>gvcR</code> package is accessible through devtools.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"gvcR"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">'warint/gvcR'</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="example" class="section level2">
+<div id="how-to" class="section level2">
 <h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
+<a href="#how-to" class="anchor"></a>How-To</h2>
+<div id="step-1-getting-the-locations-list" class="section level3">
+<h3 class="hasAnchor">
+<a href="#step-1-getting-the-locations-list" class="anchor"></a>Step 1: Getting the location’s list</h3>
+<p>A user needs to enter the location of the risk. To have access to this location, the following function provides this information.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">gvcR</span><span class="op">)</span>
-<span class="co">## basic example code</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="reference/gvcr_location.html">gvcr_location</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># A list of all locations will be produced</span>
+
+<span class="fu"><a href="reference/gvcr_location.html">gvcr_location</a></span><span class="op">(</span>location <span class="op">=</span> <span class="st">"Canal"</span><span class="op">)</span> <span class="co"># A list of locations that contain the word 'Canal' will be produced</span>
+
+<span class="fu"><a href="reference/gvcr_location.html">gvcr_location</a></span><span class="op">(</span><span class="st">"Canal"</span><span class="op">)</span> <span class="co"># A list of locations that contain the word 'Canal' will be produced</span></code></pre></div>
+</div>
+<div id="step-2-getting-the-indicators-code" class="section level3">
+<h3 class="hasAnchor">
+<a href="#step-2-getting-the-indicators-code" class="anchor"></a>Step 2: Getting the indicator’s code</h3>
+<p>A user needs to enter the code of the desired risk. To do so, the following function provides access to all the risks of interest.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/gvcr_risk.html">gvcr_risk</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># A list of all risks code will be produced</span>
+
+<span class="fu"><a href="reference/gvcr_risk.html">gvcr_risk</a></span><span class="op">(</span>indicators <span class="op">=</span> <span class="st">"attack"</span><span class="op">)</span> <span class="co"># The risk code will be produced for risks that contain the word 'attack'</span>
+
+<span class="fu"><a href="reference/gvcr_risk.html">gvcr_risk</a></span><span class="op">(</span><span class="st">"attack"</span><span class="op">)</span> <span class="co"># The risk code will be produced for risks that contain the word 'attack'</span></code></pre></div>
+</div>
+<div id="step-3-getting-the-data" class="section level3">
+<h3 class="hasAnchor">
+<a href="#step-3-getting-the-data" class="anchor"></a>Step 3: Getting the data</h3>
+<p>Once the user knows the location and the risk’s code, s.he can collect the data in a very easy way through this function:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/gvcr_data.html">gvcr_data</a></span><span class="op">(</span>location <span class="op">=</span> <span class="st">"Panama Canal"</span>, risks <span class="op">=</span> <span class="st">"S-T"</span><span class="op">)</span> <span class="co"># It generates a data frame for 'Terrorist attack' (S-T) risk in the location 'Panama Canal'</span>
+
+<span class="fu"><a href="reference/gvcr_data.html">gvcr_data</a></span><span class="op">(</span><span class="st">"Panama Canal"</span>, <span class="st">"S-T"</span><span class="op">)</span> <span class="co"># It generates a data frame for 'Terrorist attack' (S-T) risk in the location 'Panama Canal'</span>
+
+<span class="fu"><a href="reference/gvcr_data.html">gvcr_data</a></span><span class="op">(</span>location <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Panama Canal"</span>, <span class="st">"Suez Canal"</span><span class="op">)</span>, risks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"S-T"</span>, <span class="st">"S-C"</span><span class="op">)</span><span class="op">)</span> <span class="co"># It generates a data frame for 'Terrorist attack' (S-T) and 'Conflict' (S-C) risks in the location 'Panama Canal'</span>
+
+<span class="fu"><a href="reference/gvcr_data.html">gvcr_data</a></span><span class="op">(</span>category <span class="op">=</span> <span class="st">"Weather and climate risk"</span><span class="op">)</span> <span class="co"># It generates a data frame for all locations and risks in the category 'Weather and climate risk'</span>
+
+<span class="fu"><a href="reference/gvcr_data.html">gvcr_data</a></span><span class="op">(</span>levels <span class="op">=</span> <span class="st">"High risk"</span><span class="op">)</span> <span class="co"># It generates a data frame for all locations and risks with a 'High risk'</span>
+
+<span class="fu"><a href="reference/gvcr_data.html">gvcr_data</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># It generates a data frame of the complete dataset</span></code></pre></div>
+</div>
+<div id="cite-gvcr" class="section level3">
+<h3 class="hasAnchor">
+<a href="#cite-gvcr" class="anchor"></a>Cite ‘gvcR’</h3>
+<p>If you use the <code>gvcR</code> package for research, education, policy making or other related purposes, please cite the package as well as Wellesley et al. (2017). Consider making them a <a href="https://www.chathamhouse.org/support-us">donation</a> to help them pursue their work.</p>
+<p>To cite the ‘gvcR’ package in your work:</p>
+<p>Warin, Thierry. 2021. Warint/gvcR. <a href="https://github.com/warint/gvcR" class="uri">https://github.com/warint/gvcR</a>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; @Manual{,</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   title = {gvcR: Wrapper for Global Value Chains Risks},</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   author = {Thierry Warin},</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   note = {R package version 0.1.0},</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;   url = {https://warint.github.io/gvcR/},</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; }</span></span></code></pre></div>
+</div>
+<div id="acknowledgements" class="section level3">
+<h3 class="hasAnchor">
+<a href="#acknowledgements" class="anchor"></a>Acknowledgements</h3>
+<p>The author would like to thank the Center for Interuniversity Research and Analysis of Organizations (CIRANO, Montreal) for its support, as well as Marine Leroi and Martin Paquette. The usual caveats apply.</p>
+</div>
+<div id="references" class="section level3">
+<h3 class="hasAnchor">
+<a href="#references" class="anchor"></a>References</h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-wellesley_chokepoints_2017" class="csl-entry">
+Wellesley, Laura, Felix Preston, Johanna Lehne, and Rob Bailey. 2017. “Chokepoints in Global Food Trade: Assessing the Risk.” <em>Research in Transportation Business &amp; Management</em>, New developments in the global transport of commodity products, 25 (December): 15–28. <a href="https://doi.org/10.1016/j.rtbm.2017.07.007" class="uri">https://doi.org/10.1016/j.rtbm.2017.07.007</a>.
+</div>
+</div>
+</div>
 </div>
 </div>
   </div>
