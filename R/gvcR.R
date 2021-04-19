@@ -11,7 +11,7 @@ gvc_data <- readr::read_csv(csv_file)
 # IF an entry is missing, all the observations of this variable will be displayed
 
 gvc_location <- base::unique(gvc_data$location)
-gvc_risk <- base::unique(gvc_data$risk)
+gvc_risk <- base::unique(gvc_data$risk_code)
 gvc_level <- base::unique(gvc_data$level)
 gvc_category <- base::unique(gvc_data$risk_category)
 
